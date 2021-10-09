@@ -3,13 +3,14 @@ var isSpecialCharacters;
 var isUpperCase;
 var isLowerCase;
 
-character = ["!", "#", "$", "%", "&", "'"];
+character = ["!", "#", "@", "$", "^", "%", "*", "&", "'"];
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-lowerCaseletters = ["a", "b", "c", "d", "e", "f"];
+lowerCaseletters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+upperCaseletters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 space = [];
 
 
-var toUpper = function (x) {
+var toUpper = function(x) {
     return x.toUpperCase();
 };
 
@@ -17,7 +18,7 @@ convertedToUpperCase = lowerCaseletters.map(toUpper);
 
 var generateButton = document.querySelector("#generate");
 
-generateButton.addEventListener("click", function () {
+generateButton.addEventListener("click", function() {
     val = generatePassword();
     document.getElementById("password").placeholder = val;
 });
@@ -39,25 +40,17 @@ function generatePassword() {
 
     if (!isSpecialCharacters && !isNumbers && !isUpperCase && !lowerCase) {
         chosenPreference = alert("You must choose a criteria!");
-    }
-    else if (isSpecialCharacters && isNumbers && isUpperCase && isLowerCase) {
+    } else if (isSpecialCharacters && isNumbers && isUpperCase && isLowerCase) {
         chosenPreference = character.concat(number, lowerCaseletters, convertedToUpperCase);
-    }
-
-    else if (isSpecialCharacters && isNumbers && isUpperCase) {
+    } else if (isSpecialCharacters && isNumbers && isUpperCase) {
         chosenPreference = character.concat(number, convertedToUpperCase);
-    }
-    else if (isSpecialCharacters && isNumbers && isLowerCase) {
+    } else if (isSpecialCharacters && isNumbers && isLowerCase) {
         chosenPreference = character.concat(number, lowerCaseletters);
-    }
-    else if (isSpecialCharacters && isLowerCase && isUpperCase) {
+    } else if (isSpecialCharacters && isLowerCase && isUpperCase) {
         chosenPreference = character.concat(lowerCaseletters, convertedToUpperCase);
-    }
-    else if (isNumbers && isLowerCase && isUpperCase) {
+    } else if (isNumbers && isLowerCase && isUpperCase) {
         chosenPreference = number.concat(lowerCaseletters, convertedToUpperCase);
-    }
-  
-    else if (isSpecialCharacters && isNumbers) {
+    } else if (isSpecialCharacters && isNumbers) {
         chosenPreference = character.concat(number);
 
     } else if (isSpecialCharacters && isLowerCase) {
@@ -65,8 +58,7 @@ function generatePassword() {
 
     } else if (isSpecialCharacters && isUpperCase) {
         chosenPreference = character.concat(convertedToUpperCase);
-    }
-    else if (lowerCase && isNumbers) {
+    } else if (lowerCase && isNumbers) {
         chosenPreference = lowerCaseletters.concat(number);
 
     } else if (isLowerCase && isUpperCase) {
@@ -74,19 +66,13 @@ function generatePassword() {
 
     } else if (nuisNumbersmbers && isUpperCase) {
         chosenPreference = number.concat(convertedToUpperCase);
-    }
-
-    else if (isSpecialCharacters) {
+    } else if (isSpecialCharacters) {
         chosenPreference = character;
-    }
-    else if (isNumbers) {
+    } else if (isNumbers) {
         chosenPreference = number;
-    }
-    else if (isLowerCase) {
+    } else if (isLowerCase) {
         chosenPreference = lowerCaseletters;
-    }
-
-    else if (isUpperCase) {
+    } else if (isUpperCase) {
         chosenPreference = space.concat(convertedToUpperCase);
     };
 
